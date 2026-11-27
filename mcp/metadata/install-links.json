@@ -1,0 +1,6 @@
+{
+  "cursor": "https://cursor.com/en/install-mcp?name=zerorank&config=eyJ1cmwiOiJodHRwczovL2FwaS56ZXJvcmFuay5haS9tY3AifQ%3D%3D",
+  "cursor_deeplink": "cursor://anysphere.cursor-deeplink/mcp/install?name=zerorank&config=eyJ1cmwiOiJodHRwczovL2FwaS56ZXJvcmFuay5haS9tY3AifQ%3D%3D",
+  "vscode": "vscode:mcp/install?%7B%22name%22%3A%22zerorank%22%2C%22type%22%3A%22http%22%2C%22url%22%3A%22https%3A%2F%2Fapi.zerorank.ai%2Fmcp%22%7D",
+  "vscode_insiders": "vscode-insiders:mcp/install?%7B%22name%22%3A%22zerorank%22%2C%22type%22%3A%22http%22%2C%22url%22%3A%22https%3A%2F%2Fapi.zerorank.ai%2Fmcp%22%7D"
+}

@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "zerorank": {
+      "type": "http",
+      "url": "https://api.zerorank.ai/mcp",
+      "tools": [
+        "list_workspaces",
+        "list_chats",
+        "get_chat"
+      ]
+    }
+  }
+}

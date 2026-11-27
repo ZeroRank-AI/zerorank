@@ -1,0 +1,133 @@
+{
+  "asOf": "2026-11-26",
+  "endpoint": "https://api.zerorank.ai/mcp",
+  "documentation": "https://docs.zerorank.ai/integrations/mcp-server",
+  "clients": [
+    {
+      "id": "cursor",
+      "name": "Cursor",
+      "route": "Install link",
+      "source": "https://cursor.com/docs/mcp/install-links"
+    },
+    {
+      "id": "vscode",
+      "name": "VS Code / Insiders",
+      "route": "Command Palette → MCP: Add Server",
+      "source": "https://code.visualstudio.com/docs/agent-customization/mcp-servers"
+    },
+    {
+      "id": "codex",
+      "name": "Codex CLI / IDE / desktop",
+      "route": "CLI or MCP settings",
+      "source": "https://learn.chatgpt.com/docs/extend/mcp?surface=cli"
+    },
+    {
+      "id": "chatgpt",
+      "name": "ChatGPT",
+      "route": "Custom MCP/plugin UI",
+      "source": "https://developers.openai.com/api/docs/guides/custom-mcp-server"
+    },
+    {
+      "id": "claude-code",
+      "name": "Claude Code",
+      "route": "CLI, then /mcp",
+      "source": "https://code.claude.com/docs/en/mcp"
+    },
+    {
+      "id": "claude",
+      "name": "Claude web / desktop",
+      "route": "Custom connector UI",
+      "source": "https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp"
+    },
+    {
+      "id": "gemini",
+      "name": "Gemini CLI",
+      "route": "CLI, then /mcp auth",
+      "source": "https://geminicli.com/docs/tools/mcp-server/"
+    },
+    {
+      "id": "pi",
+      "name": "Pi 0.99+",
+      "route": "Native CLI, then login",
+      "source": "https://github.com/earendil-works/pi/blob/main/packages/coding-agent/docs/mcp.md"
+    },
+    {
+      "id": "opencode",
+      "name": "OpenCode",
+      "route": "CLI, then browser authorization",
+      "source": "https://opencode.ai/docs/mcp-servers/"
+    },
+    {
+      "id": "copilot",
+      "name": "GitHub Copilot CLI",
+      "route": "CLI, then /mcp auth",
+      "source": "https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/add-mcp-servers"
+    },
+    {
+      "id": "zed",
+      "name": "Zed",
+      "route": "Remote-server UI or configuration",
+      "source": "https://zed.dev/docs/ai/mcp"
+    },
+    {
+      "id": "antigravity",
+      "name": "Antigravity",
+      "route": "MCP configuration and OAuth UI",
+      "source": "https://antigravity.google/docs/mcp"
+    },
+    {
+      "id": "kiro",
+      "name": "Kiro",
+      "route": "MCP configuration and browser OAuth",
+      "source": "https://kiro.dev/docs/mcp/configuration/"
+    },
+    {
+      "id": "devin",
+      "name": "Devin Local / CLI",
+      "route": "MCP configuration and browser OAuth",
+      "source": "https://docs.devin.ai/desktop/devin-local/customizations"
+    },
+    {
+      "id": "cline",
+      "name": "Cline",
+      "route": "Remote-server UI or CLI with OAuth",
+      "source": "https://docs.cline.bot/mcp/mcp-overview"
+    },
+    {
+      "id": "continue",
+      "name": "Continue",
+      "route": "Remote YAML configuration",
+      "source": "https://docs.continue.dev/customize/deep-dives/mcp"
+    },
+    {
+      "id": "goose",
+      "name": "Goose",
+      "route": "Custom extension UI or configure wizard",
+      "source": "https://github.com/aaif-goose/goose/blob/main/documentation/docs/getting-started/using-extensions.md"
+    },
+    {
+      "id": "kilo",
+      "name": "Kilo Code",
+      "route": "Remote configuration and OAuth",
+      "source": "https://kilo.ai/docs/automate/mcp/using-in-kilo-code"
+    },
+    {
+      "id": "grok",
+      "name": "Grok Build",
+      "route": "CLI and automatic OAuth",
+      "source": "https://docs.x.ai/build/features/mcp-servers"
+    },
+    {
+      "id": "grok-web",
+      "name": "Grok web",
+      "route": "Custom connector UI",
+      "source": "https://docs.x.ai/grok/connectors"
+    },
+    {
+      "id": "grok-bot",
+      "name": "Grok Bot",
+      "route": "Desktop custom connector",
+      "source": "https://docs.x.ai/grok-bot/computer-and-apps"
+    }
+  ]
+}

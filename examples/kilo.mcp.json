@@ -1,0 +1,9 @@
+{
+  "mcp": {
+    "zerorank": {
+      "type": "remote",
+      "url": "https://api.zerorank.ai/mcp",
+      "enabled": true
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "zerorank": {
+      "type": "streamableHttp",
+      "url": "https://api.zerorank.ai/mcp",
+      "disabled": false,
+      "autoApprove": []
+    }
+  }
+}

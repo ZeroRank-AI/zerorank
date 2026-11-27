@@ -1,0 +1,167 @@
+{
+  "info": {
+    "name": "ZeroRank workspace · read a recent AI answer",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": "Official ZeroRank API documentation: https://docs.zerorank.ai/api/overview. Get one existing AI answer from your workspace and inspect the original question and returned sources. Set the local Postman Vault secret zerorank-api-key for api.zerorank.ai and run all three requests in order. Sending requests one by one? Copy an id from the second response into the final URL. These requests read existing data."
+  },
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "type": "string",
+        "value": "{{vault:zerorank-api-key}}"
+      }
+    ]
+  },
+  "item": [
+    {
+      "name": "1. Identify the workspace",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "https://api.zerorank.ai/api/v1/workspace",
+          "protocol": "https",
+          "host": [
+            "api",
+            "zerorank",
+            "ai"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "workspace"
+          ]
+        },
+        "description": "The bearer key belongs to a single workspace. Inspect data.workspace.name."
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "const ok = pm.response.code === 200 && pm.response.json().success === true;",
+              "pm.test('Request succeeded', () => pm.expect(ok).to.equal(true));",
+              "if (!ok) {",
+              "    pm.execution.setNextRequest(null);",
+              "} else {",
+              "    pm.test('Has a workspace name', () => {",
+              "        pm.expect(pm.response.json().data.workspace.name).to.be.a('string');",
+              "    });",
+              "}"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "2. Find a recent chat",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "https://api.zerorank.ai/api/v1/chats?limit=1",
+          "protocol": "https",
+          "host": [
+            "api",
+            "zerorank",
+            "ai"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "chats"
+          ],
+          "query": [
+            {
+              "key": "limit",
+              "value": "1"
+            }
+          ]
+        },
+        "description": "Inspect data[0].id. The collection runner carries it to the next request. An empty data array ends the run."
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "const ok = pm.response.code === 200 && pm.response.json().success === true;",
+              "pm.test('Request succeeded', () => pm.expect(ok).to.equal(true));",
+              "if (!ok) {",
+              "    pm.execution.setNextRequest(null);",
+              "} else {",
+              "    const chats = pm.response.json().data;",
+              "    pm.test('Chat summaries form an array', () => pm.expect(chats).to.be.an('array'));",
+              "    if (Array.isArray(chats) && chats.length && chats[0].id) {",
+              "        pm.variables.set('recentChatId', chats[0].id);",
+              "    } else {",
+              "        pm.execution.setNextRequest(null);",
+              "    }",
+              "}"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "3. Open the answer and sources",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "https://api.zerorank.ai/api/v1/chats/{{recentChatId}}",
+          "protocol": "https",
+          "host": [
+            "api",
+            "zerorank",
+            "ai"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "chats",
+            "{{recentChatId}}"
+          ]
+        },
+        "description": "Read data.question, data.answer, data.aiModel, data.location, data.createdAt, data.status and data.sources. A missing sources field has unknown coverage. An empty array means the API returned zero source entries for this execution."
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "const ok = pm.response.code === 200 && pm.response.json().success === true;",
+              "pm.test('Request succeeded', () => pm.expect(ok).to.equal(true));",
+              "if (!ok) {",
+              "    pm.execution.setNextRequest(null);",
+              "} else {",
+              "    const chat = pm.response.json().data;",
+              "    pm.test('Response identifies a chat execution', () => pm.expect(chat.id).to.be.a('string'));",
+              "}"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

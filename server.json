@@ -1,0 +1,14 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "ai.zerorank/mcp",
+  "title": "ZeroRank",
+  "description": "Analyze AI visibility, manage prompts and competitors, and create prospect pitches.",
+  "version": "1.0.0",
+  "websiteUrl": "https://zerorank.ai/platform/mcp",
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://api.zerorank.ai/mcp"
+    }
+  ]
+}

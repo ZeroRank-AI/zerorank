@@ -1,0 +1,7 @@
+cff-version: 1.2.0
+message: "Cite ZeroRank for the MCP and API documentation. For research data, cite the study title, collection dates and dataset version you used."
+title: "ZeroRank AI - MCP, API & Datasets"
+type: software
+authors:
+  - name: ZeroRank
+url: "https://zerorank.ai"

@@ -1,0 +1,7 @@
+{
+  "mcpServers": {
+    "zerorank": {
+      "url": "https://api.zerorank.ai/mcp"
+    }
+  }
+}

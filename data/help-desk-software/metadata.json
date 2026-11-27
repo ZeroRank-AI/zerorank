@@ -1,0 +1,179 @@
+{
+  "title": "Help desk software across five markets",
+  "publisher": "ZeroRank",
+  "release_date": "2026-11-25",
+  "version": "1.1",
+  "license": {
+    "identifier": "CC-BY-4.0",
+    "url": "https://creativecommons.org/licenses/by/4.0/",
+    "terms": "../../LICENSE.md",
+    "scope": "Our original questions, study and compilation. Third-party material retains its applicable rights."
+  },
+  "research_question": "Which help desk products appear in answers to the same customer support buying questions across two AI experiences and five requested markets?",
+  "time_coverage": {
+    "provider_date_first": "2026-10-29",
+    "provider_date_last": "2026-10-30",
+    "source_collection_through": "2026-11-02",
+    "date_basis": "provider_date is the UTC calendar day on each provider answer record. We finished collecting the study records on November 2."
+  },
+  "market_settings": {
+    "US": "United States",
+    "GB": "United Kingdom",
+    "CA": "Canada",
+    "AU": "Australia",
+    "IN": "India"
+  },
+  "engine_configurations": {
+    "chatgpt": "ChatGPT (standard consumer experience)",
+    "google-ai-overview": "Google AI Overviews"
+  },
+  "question_language": "English",
+  "selection": {
+    "included_questions": 34,
+    "answers_per_question": 10,
+    "answers_per_market": 68,
+    "answers_per_engine": 170,
+    "answers_per_engine_and_market": 34,
+    "rule": "We compared questions with an answer from both engines in all five markets. Each of the 34 questions uses the same wording across markets and has one answer per engine and market combination."
+  },
+  "coverage": {
+    "answers": 340,
+    "shared_source_domain_count": 71,
+    "with_tracked_product_mentions": 301
+  },
+  "tracked_products": [
+    "Zendesk",
+    "Freshdesk",
+    "Intercom",
+    "Help Scout",
+    "Gorgias",
+    "Zoho Desk",
+    "Tidio",
+    "HubSpot",
+    "Hiver",
+    "Chatwoot",
+    "LiveChat",
+    "LiveAgent"
+  ],
+  "published_source_domains": [
+    "ada.cx",
+    "aftership.com",
+    "amazon.com",
+    "atlassian.com",
+    "auth0.com",
+    "capterra.com",
+    "chatbase.co",
+    "chatwoot.com",
+    "clearfeed.ai",
+    "crisp.chat",
+    "dayforce.com",
+    "desk365.io",
+    "deskpro.com",
+    "edesk.com",
+    "eesel.ai",
+    "facebook.com",
+    "featurebase.app",
+    "fin.ai",
+    "freshdesk.com",
+    "freshworks.com",
+    "front.com",
+    "g2.com",
+    "getapp.ca",
+    "getapp.com.au",
+    "github.com",
+    "gorgias.com",
+    "happyfox.com",
+    "helpdesk.com",
+    "helpmonks.com",
+    "helpscout.com",
+    "helpshift.com",
+    "helpwise.io",
+    "hiverhq.com",
+    "hubspot.com",
+    "instagram.com",
+    "intercom.com",
+    "justcall.io",
+    "kayako.com",
+    "linkedin.com",
+    "liveagent.com",
+    "livechat.com",
+    "manychat.com",
+    "microsoft.com",
+    "missiveapp.com",
+    "nice.com",
+    "nvidia.com",
+    "onetrust.com",
+    "openai.com",
+    "plain.com",
+    "quora.com",
+    "reamaze.com",
+    "reddit.com",
+    "respond.io",
+    "richpanel.com",
+    "salesforce.com",
+    "shopify.com",
+    "slack.com",
+    "sobot.io",
+    "supportbee.com",
+    "tidio.com",
+    "trengo.com",
+    "usepylon.com",
+    "wati.io",
+    "workato.com",
+    "youtube.com",
+    "zapier.com",
+    "zendesk.co.uk",
+    "zendesk.com",
+    "zendesk.com.br",
+    "zendesk.de",
+    "zoho.com"
+  ],
+  "files": [
+    {
+      "path": "questions.jsonl",
+      "format": "JSON Lines",
+      "encoding": "UTF-8",
+      "records": 34,
+      "primary_key": "question_id",
+      "sha256": "8386c88b8a4c69929619f1a457872f7ba5bcc797f2802aecb31116b6bc5719a3"
+    },
+    {
+      "path": "answers.jsonl",
+      "format": "JSON Lines",
+      "encoding": "UTF-8",
+      "records": 340,
+      "primary_key": "answer_id",
+      "sha256": "cd14c3be7568135ba7e98af972c4a24ca43b59433b07de0949d913d9c7628f8f"
+    }
+  ],
+  "join": {
+    "from": "answers.jsonl",
+    "to": "questions.jsonl",
+    "on": "question_id",
+    "cardinality": "many-to-one"
+  },
+  "fields": {
+    "questions.jsonl": {
+      "question_id": "Study-local identifier. Ten answers share each question_id.",
+      "question": "The exact buyer question used in every engine and market for this release. The questions were written for this study. Original spelling and punctuation are preserved.",
+      "wording_status": "original means the public question matches the wording sent to the engines."
+    },
+    "answers.jsonl": {
+      "answer_id": "Unique study-local identifier for an answer observation.",
+      "question_id": "The matching record in questions.jsonl.",
+      "market": "Requested country setting, expressed as a two-letter code.",
+      "engine": "Consumer experience used for this answer. See engine_configurations.",
+      "provider_date": "UTC calendar day recorded by the provider for this answer.",
+      "tracked_product_mentions": "Distinct names from tracked_products found in the full answer text, including visible link labels. We matched names case-insensitively with word boundaries and accepted HelpScout as a spelling of Help Scout. The array follows the fixed list order. An empty array means none of the twelve names matched.",
+      "answer_excerpt": "One short, privacy-reviewed verbatim passage from this answer, in the language returned. It illustrates part of the response. Calculate product counts using tracked_product_mentions.",
+      "source_domains": "Reviewed domains cited in the full answer, grouped by parent domain and counted once per answer. An empty list means this release lists no domain for that answer. A source may appear in the original answer without appearing here."
+    }
+  },
+  "interpretation": [
+    "A counted product mention can be a recommendation, a comparison, or a passing reference. The twelve tracked products are a fixed subset of the products discussed. Excerpts are too short for recounting every mention.",
+    "For a product mention rate, divide the number of answers that mention the product by all 34 answers for that engine and market. For a domain chart, label the measure as appearances of published domains and count each domain once per answer.",
+    "We share short answer excerpts and a curated set of public company and platform domains. Domain counts describe the set we publish. A listed domain applies to the whole answer and cannot be tied to a specific excerpt.",
+    "Requested market describes a setting. The snapshot does not establish the user's physical location or a causal country effect. Product and pricing statements in excerpts are historical model output.",
+    "We independently report what the engines returned. We have no affiliation with or control over the businesses mentioned."
+  ]
+}
